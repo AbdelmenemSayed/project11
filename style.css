@@ -1,0 +1,237 @@
+/* ضبط إعدادات الصفحة */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d3d3d3; /* خلفية رمادية داكنة */
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+}
+
+/* إضافة الظل المظلل على الخلفية ليغطي كامل الصفحة */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+/* شريط العنوان العلوي */
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: black;
+    text-align: left; /* محاذاة النص إلى اليسار */
+    font-size: 24px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding-left: 20px; /* إضافة مسافة من اليسار */
+}
+
+/* الصورة في الشريط العلوي */
+.header-img {
+    height: 100%;
+    width: auto; /* تأكيد أن عرض الصورة يتناسب مع ارتفاعها */
+    object-fit: contain;
+    position: absolute;
+    left: 20px; /* تحديد مكان الصورة على اليسار */
+}
+
+/* إعداد الحاوية الرئيسية التي تحتوي على الصورة والزر */
+.container {
+    background-color: #333; /* خلفية رمادي فاتح */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 30px; /* إضافة padding للحاوية */
+    border: 2px solid #fff; /* تحديد إطار خارجي */
+    border-radius: 15px; /* إضافة حواف دائرية للإطار */
+    width: 80%; /* تحديد عرض الحاوية بالنسبة إلى الصفحة */
+    max-width: 800px; /* الحد الأقصى للعرض */
+    min-height: 300px; /* الحد الأدنى لارتفاع الحاوية */
+    margin-top: 60px; /* التأكد من أن الحاوية تكون تحت الشريط العلوي مباشرة */
+}
+
+
+/* تصميم الصورة */
+.image-container {
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+
+/* إزالة الظلال الخاصة بالصورة في المنتصف */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* إزالة الظلال */
+    z-index: -1;
+    border-radius: 15px;
+}
+
+/* تنسيق الصورة داخل الحاوية */
+.image-container img {
+    width: 100%;  /* تأكد من أن الصورة تتناسب مع عرض الحاوية */
+    height: 100%;  /* الحفاظ على نسبة الأبعاد الأصلية للصورة */
+    object-fit: contain; /* تأكد من أن الصورة لا تتعرض للقص */
+}
+
+/* تصميم الحاوية التي تحتوي على الصورة والزر */
+.container {
+    background-color: #555; /* خلفية الحاوية بلون رمادي غامق */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* تأكد من محاذاة المحتوى بشكل جيد */
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 20px; /* إضافة padding للحاوية */
+    border: 2px solid #fff; /* إطار خارجي */
+    border-radius: 15px; /* إضافة حواف دائرية للإطار */
+    width: 80%; /* عرض الحاوية بالنسبة إلى الصفحة */
+    max-width: 800px; /* الحد الأقصى للعرض */
+    min-height: 350px; /* الحد الأدنى لارتفاع الحاوية */
+    margin-top: 80px; /* المسافة بين الشريط العلوي والحاوية */
+}
+
+
+/* تصميم الزر */
+.button-container {
+    margin-top: 20px; /* المسافة بين الصورة والزر */
+}
+
+button {
+    background: linear-gradient(145deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 14px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    position: relative; /* التأكد من أن الزر في المستوى الصحيح */
+}
+
+/* تأثير عند التمرير فوق الزر */
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #0072ff, #00c6ff);
+}
+
+/* تأثير عند الضغط على الزر */
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* إعداد الـ canvas */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ريسبونسيف تصميم الصفحة */
+@media (max-width: 1024px) {
+    .header-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .header {
+        font-size: 20px; /* تقليل حجم الخط */
+        padding-left: 10px; /* تقليل المسافة من اليسار */
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    .container {
+        margin-top: 100px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* الهواتف المحمولة */
+    .header-img {
+        width: 100%;
+        height: 200px; /* تأكد من تناسب الصورة مع الشاشة الصغيرة */
+        object-fit: contain; /* الحفاظ على الأبعاد بدون تشويه */
+    }
+
+    .header {
+        font-size: 18px;
+        padding-left: 10px; /* تقليل المسافة من اليسار */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .container {
+        margin-top: 120px; /* زيادة المسافة بين الشريط العلوي والصورة */
+    }
+}
+
+@media (max-width: 480px) {
+    /* الأجهزة الصغيرة جدًا */
+    .header-img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+    }
+
+    .header {
+        font-size: 16px; /* تقليل حجم الخط بشكل أكبر */
+        padding-left: 5px; /* تقليل المسافة من اليسار */
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .container {
+        margin-top: 130px;
+        width: 100%;
+    }
+}
